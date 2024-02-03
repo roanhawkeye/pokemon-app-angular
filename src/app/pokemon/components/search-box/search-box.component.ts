@@ -1,5 +1,4 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'pokemon-search-box',
@@ -13,13 +12,11 @@ export class SearchBoxComponent {
   @Output()
   onSearchEmmiter: EventEmitter<string> = new EventEmitter();
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor() { }
 
   searchPokemon(){
     const pokemon = this.pokemonInput.nativeElement.value;
-
     this.onSearchEmmiter.emit(pokemon);
-
     this.pokemonInput.nativeElement.value = '';
   }
 }

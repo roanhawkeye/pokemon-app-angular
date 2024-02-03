@@ -20,7 +20,7 @@ export class PokemonService {
   }
 
   getPokemonDetails(name: string): Observable<PokemonDetailsResponse> {
-    return this.http.get<PokemonDetailsResponse>(`${this.baseUrl}/pokemon/${name}`)
+    return this.http.get<PokemonDetailsResponse>(`${this.baseUrl}pokemon/${name}`)
   }
 
 }
