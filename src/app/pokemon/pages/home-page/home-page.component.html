@@ -1,0 +1,12 @@
+<div class="row p-3">
+  <div class="col-12">
+    <!-- Busqueda -->
+    <pokemon-search-box (onSearchEmmiter)="filterPokemons($event)"></pokemon-search-box>
+  </div>
+
+  <div class="col-12 pt-2">
+    <!-- Listado de Pokemons -->
+    <pokemon-card-list [pokemons]="pokemons"></pokemon-card-list>
+
+  </div>
+</div>
