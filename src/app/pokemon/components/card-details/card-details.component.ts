@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { PokemonDetailsResponse } from '../../interfaces/pokemon.interfaces';
 import { PokemonService } from '../../services/pokemon.service';
 
@@ -12,6 +12,9 @@ export class CardDetailsComponent implements OnChanges {
   pokemonName?: string;
 
   private _pokemonDetails?: PokemonDetailsResponse;
+
+  @Output()
+  public onBackToListEmitter: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private pokemonService: PokemonService){}
 
@@ -27,6 +30,10 @@ export class CardDetailsComponent implements OnChanges {
 
   get pokemon(): PokemonDetailsResponse | undefined {
     return this._pokemonDetails;
+  }
+
+  backToList(){
+    this.onBackToListEmitter.emit(false);
   }
 
 

@@ -3,8 +3,8 @@
     <h3 class="text-center">Pokemon Details - {{ pokemon?.name | titlecase }}</h3>
 
     <img
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
-      alt="Bulbasaur"
+      [src]="pokemon?.sprites?.back_default"
+      [alt]="pokemon?.name"
       class="card-img-top card-details"
     >
 
@@ -14,6 +14,8 @@
       <p><strong>weight:</strong> {{ pokemon?.weight | hectograms: 12 }} (12 hectograms factor) </p>
       <p><strong>height:</strong> {{ pokemon?.height | decimeter  }} decimeters </p>
     </div>
+
+    <button (click)="backToList()" class="btn btn-primary">Return</button>
 
   </div>
 </div>
