@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DecimeterPipe } from './pipes/decimeter.pipe';
 import { HectogramPipe } from './pipes/hectograms.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -10,7 +11,8 @@ import { HectogramPipe } from './pipes/hectograms.pipe';
   declarations: [
     SidebarComponent,
     DecimeterPipe,
-    HectogramPipe
+    HectogramPipe,
+    LoginComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HectogramPipe } from './pipes/hectograms.pipe';
   exports: [
     SidebarComponent,
     DecimeterPipe,
-    HectogramPipe
+    HectogramPipe,
+    LoginComponent
   ]
 })
 export class SharedModule { }
