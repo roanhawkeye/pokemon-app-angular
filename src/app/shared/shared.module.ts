@@ -4,6 +4,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DecimeterPipe } from './pipes/decimeter.pipe';
 import { HectogramPipe } from './pipes/hectograms.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { LoginComponent } from './components/login/login.component';
     LoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     SidebarComponent,
