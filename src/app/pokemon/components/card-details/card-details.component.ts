@@ -1,36 +1,19 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { PokemonDetailsResponse } from '../../interfaces/pokemon.interfaces';
-import { PokemonService } from '../../services/pokemon.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PokemonDetailsResponse, RichPokemon } from '../../interfaces/pokemon.interfaces';
 
 @Component({
   selector: 'pokemon-card-details',
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.css'
 })
-export class CardDetailsComponent implements OnChanges {
+export class CardDetailsComponent {
   @Input()
-  pokemonName?: string;
+  pokemon?: RichPokemon;
 
   private _pokemonDetails?: PokemonDetailsResponse;
 
   @Output()
   public onBackToListEmitter: EventEmitter<boolean> = new EventEmitter();
-
-  constructor(private pokemonService: PokemonService){}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    this.pokemonService.getPokemonDetails(this.pokemonName?.toLowerCase() || '')
-      .toPromise()
-      .then(response => {
-        this._pokemonDetails = response;
-        console.log("pokemon details: ", this._pokemonDetails);
-      })
-  }
-
-  get pokemon(): PokemonDetailsResponse | undefined {
-    return this._pokemonDetails;
-  }
 
   backToList(){
     this.onBackToListEmitter.emit(false);

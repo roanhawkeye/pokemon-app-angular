@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Pokemon } from '../../interfaces/pokemon.interfaces';
+import { Pokemon, RichPokemon } from '../../interfaces/pokemon.interfaces';
 
 @Component({
   selector: 'pokemon-card-list',
@@ -9,18 +9,18 @@ import { Pokemon } from '../../interfaces/pokemon.interfaces';
 export class CardListComponent {
 
   @Input()
-  public pokemons: Pokemon[] = [];
+  public pokemons: RichPokemon[] = [];
 
   private _shouldShowDetails: boolean = false;
-  public pokemonName: string = "";
+  public currentPokemon!: RichPokemon;
 
   get shouldShowDetails(): boolean {
     return this._shouldShowDetails;
   }
 
-  showDetails(name: string){
+  showDetails(pokemon: RichPokemon){
     this._shouldShowDetails = true;
-    this.pokemonName = name;
+    this.currentPokemon = pokemon;
   }
 
   onBackToList(showDetails: boolean){
