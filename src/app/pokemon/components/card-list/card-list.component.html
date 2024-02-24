@@ -3,7 +3,7 @@
   class="row">
 
   <div
-    (click)="showDetails(pokemon.name)"
+    (click)="showDetails(pokemon)"
     *ngFor="let pokemon of pokemons"
     class="col-md-3 col-sm-6"
     >
@@ -22,7 +22,7 @@
   <ng-template #cardDetails>
     <pokemon-card-details
       (onBackToListEmitter)="onBackToList($event)"
-      [pokemonName]="pokemonName"></pokemon-card-details>
+      [pokemon]="currentPokemon"></pokemon-card-details>
   </ng-template>
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
-import { Pokemon } from '../../interfaces/pokemon.interfaces';
+import { Pokemon, RichPokemon } from '../../interfaces/pokemon.interfaces';
 
 @Component({
   selector: 'pokemon-home-page',
@@ -8,8 +8,8 @@ import { Pokemon } from '../../interfaces/pokemon.interfaces';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent implements OnInit {
-  private _pokemons: Pokemon[] = [];
-  private _pokemonBk: Pokemon[] = [];
+  private _pokemons: RichPokemon[] = [];
+  private _pokemonBk: RichPokemon[] = [];
 
   constructor( private pokemonService: PokemonService) {
   }
@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
     this.pokemonService.getPokemons()
     .toPromise()
     .then( response => {
-      this._pokemons = response?.results || [];
+      this._pokemons = response || [];
       this._pokemonBk = this._pokemons;
       console.log({pokemons: this._pokemons});
     });
@@ -30,10 +30,10 @@ export class HomePageComponent implements OnInit {
       return;
     }
 
-    this._pokemons = this._pokemons.filter(pokemon => pokemon.name === query);
+    this._pokemons = this._pokemons.filter(pokemon => pokemon.name.includes(query));
   }
 
-  get pokemons(): Pokemon[]{
+  get pokemons(): RichPokemon[]{
     return this._pokemons;
   }
 

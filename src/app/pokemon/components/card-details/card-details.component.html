@@ -3,16 +3,16 @@
     <h3 class="text-center">Pokemon Details - {{ pokemon?.name | titlecase }}</h3>
 
     <img
-      [src]="pokemon?.sprites?.back_default"
-      [alt]="pokemon?.name"
+      [src]="pokemon?.details?.sprites?.back_default"
+      [alt]="pokemon?.details?.name"
       class="card-img-top card-details"
     >
 
     <div class="card-body text-black">
-      <p><strong>Name: </strong> {{ pokemon?.name | uppercase }}</p>
-      <p><strong>Id: </strong> {{ pokemon?.id }}</p>
-      <p><strong>weight:</strong> {{ pokemon?.weight | hectograms: 12 }} (12 hectograms factor) </p>
-      <p><strong>height:</strong> {{ pokemon?.height | decimeter  }} decimeters </p>
+      <p><strong>Name: </strong> {{ pokemon?.details?.name | uppercase }}</p>
+      <p><strong>Id: </strong> {{ pokemon?.details?.id }}</p>
+      <p><strong>weight:</strong> {{ pokemon?.details?.weight | hectograms: 12 }} (12 hectograms factor) </p>
+      <p><strong>height:</strong> {{ pokemon?.details?.height | decimeter  }} decimeters </p>
     </div>
 
     <button (click)="backToList()" class="btn btn-primary">Return</button>
